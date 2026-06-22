@@ -118,6 +118,24 @@ export default function Projects() {
     setActiveIndex(index);
   };
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" as const }
+    }
+  };
+
   return (
     <section id="projects" className="projects-section scroll-reveal">
       <div className="section-container">
@@ -130,13 +148,13 @@ export default function Projects() {
 
         <motion.div 
           className="projects-interactive-grid"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Left Column: Interactive projects list */}
-          <div className="projects-list-col">
+          <motion.div className="projects-list-col" variants={itemVariants}>
             <ul className="projects-interactive-list" id="interactive-projects-list">
               {projects.map((proj, idx) => (
                 <li
@@ -213,10 +231,10 @@ export default function Projects() {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Right Column: Desktop preview panel */}
-          <div className="projects-preview-col">
+          <motion.div className="projects-preview-col" variants={itemVariants}>
             <div 
               className="preview-card-wrapper"
               style={{ transform: `translateY(${translateY}px)` }}
@@ -276,7 +294,7 @@ export default function Projects() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

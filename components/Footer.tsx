@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Mail } from 'lucide-react';
 import { FaGithub, FaLinkedinIn, FaXTwitter } from 'react-icons/fa6';
 
@@ -12,7 +13,13 @@ export default function Footer() {
 
   return (
     <footer className="footer-wrap" id="footer-slot">
-      <div className="footer-inner-container">
+      <motion.div 
+        className="footer-inner-container"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-50px' }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
         <div className="footer-top-row">
           <a href="#hero" className="footer-logo" onClick={(e) => scrollToSection(e, 'hero')}>
             Hassan<span className="logo-accent">.</span>
@@ -65,7 +72,7 @@ export default function Footer() {
             © 2025 M Hassan Ali • Made with ❤️ by Muhammad Hassan Ali in Karachi
           </p>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 }

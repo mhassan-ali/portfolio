@@ -1925,3 +1925,77 @@ section {
         justify-content: center;
     }
 }
+
+/* =================================================================
+   PHASE 4: SUBTLE PREMIUM HOVER ANIMATIONS
+   ================================================================= */
+
+/* 1. BUTTON HOVER: scale 1.02, transition 200ms */
+.btn-hero, 
+.btn-talk, 
+.btn-project-action, 
+.btn-form-submit, 
+.btn-gradient-cta, 
+.back-to-top-btn, 
+.mobile-cta-btn {
+    transition: transform 200ms ease, background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, color 200ms ease !important;
+}
+
+.btn-hero:hover, 
+.btn-talk:hover, 
+.btn-project-action:hover, 
+.btn-form-submit:hover, 
+.btn-gradient-cta:hover, 
+.back-to-top-btn:hover, 
+.mobile-cta-btn:hover {
+    transform: scale(1.02) !important;
+}
+
+/* 2. CARD HOVER (Project cards): lift and shadow, 300ms */
+.project-hover-preview-card {
+    transition: transform 300ms ease, box-shadow 300ms ease !important;
+}
+
+.project-hover-preview-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 32px rgba(99, 102, 241, 0.12) !important;
+}
+
+/* 3. NAV LINK HOVER: smooth color transition and underline slide animation */
+.nav-link-item {
+    transition: color 200ms ease !important;
+}
+
+.nav-link-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 200ms ease;
+}
+
+.nav-link-item:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Maintain dot for active link item and don't slide line */
+.nav-link-item.active::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: -4px !important;
+    left: 50% !important;
+    transform: translateX(-50%) scaleX(1) !important;
+    width: 5px !important;
+    height: 5px !important;
+    background-color: var(--primary-color) !important;
+    border-radius: 50% !important;
+    transform-origin: center !important;
+    transition: none !important;
+}
+

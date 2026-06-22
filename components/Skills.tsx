@@ -69,7 +69,7 @@ export default function Skills() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.05
+        staggerChildren: 0.1
       }
     }
   };

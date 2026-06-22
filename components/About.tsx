@@ -5,18 +5,36 @@ import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
 
 export default function About() {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" as const }
+    }
+  };
+
   return (
     <section id="about" className="about-section scroll-reveal">
       <div className="section-container">
         <motion.div 
           className="about-main-grid"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Left Column: Title & Profile Image */}
-          <div className="about-left-title-col flex flex-col gap-6">
+          <motion.div className="about-left-title-col flex flex-col gap-6" variants={itemVariants}>
             <h2 className="about-section-heading">
               <span className="weight-normal">A little bit</span><br />
               <span className="weight-bold text-blue">about me.</span>
@@ -31,10 +49,10 @@ export default function About() {
                 className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Conversational bio */}
-          <div className="about-right-content-col">
+          <motion.div className="about-right-content-col" variants={itemVariants}>
             <p className="conversational-bio">
               Hey! I'm Hassan, a Computer Engineering student at SSUET Karachi. I love turning ideas into real products — whether that's a fast backend API or a clean React frontend. Currently looking for internship opportunities where I can learn, grow, and contribute.
             </p>
@@ -60,7 +78,7 @@ export default function About() {
               <span className="trait-pill">💡 Problem Solver</span>
               <span className="trait-pill">🤝 Team Player</span>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

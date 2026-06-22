@@ -85,7 +85,7 @@ export default function Hero() {
         className="hero-inner-container"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.0, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
       >
         {/* Left Side: Profile Card */}
         <div className="hero-left-card-col">

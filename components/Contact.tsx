@@ -107,18 +107,36 @@ export default function Contact() {
     e.currentTarget.style.transform = 'translate(0px, 0px)';
   };
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: "easeOut" as const }
+    }
+  };
+
   return (
     <section id="contact" className="contact-section scroll-reveal">
       <div className="section-container">
         <motion.div 
           className="contact-layout-grid"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Left: Titles and info cards */}
-          <div className="contact-left-info-col">
+          <motion.div className="contact-left-info-col" variants={itemVariants}>
             <div className="contact-header-block">
               <h2 className="contact-section-title text-[var(--text-heading)]">
                 <span className="weight-light">Got an idea?</span><br />
@@ -175,10 +193,10 @@ export default function Contact() {
                 </div>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Form */}
-          <div className="contact-right-form-col">
+          <motion.div className="contact-right-form-col" variants={itemVariants}>
             <div className="contact-form-card glass-panel relative">
               <form onSubmit={handleValidationAndSubmit} className="handcrafted-form" id="main-contact-form">
                 <div className="form-input-group">
@@ -274,7 +292,7 @@ export default function Contact() {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
