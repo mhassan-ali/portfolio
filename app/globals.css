@@ -1999,3 +1999,115 @@ section {
     transition: none !important;
 }
 
+/* =================================================================
+   PHASE 5: MICRO-DETAILS POLISH (Accessibility, Shadows, Radii, Inputs)
+   ================================================================= */
+
+/* Define refined shadow tokens */
+:root {
+    --shadow-sm: 0 1px 2px 0 rgba(99, 102, 241, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(99, 102, 241, 0.1), 0 2px 4px -2px rgba(99, 102, 241, 0.1);
+}
+[data-theme="dark"] {
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.7), 0 2px 4px -2px rgba(0, 0, 0, 0.7);
+}
+
+/* 1. Focus states (accessibility) */
+button:focus,
+button:focus-visible,
+a:focus,
+a:focus-visible,
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+    outline: 2px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* 2. Refined shadows and transitions on cards */
+.card, 
+.profile-card, 
+.project-card, 
+.skill-card, 
+.contact-card, 
+.glass-panel, 
+.uni-glass-card, 
+.contact-form-card, 
+.profile-floating-card, 
+.project-hover-preview-card, 
+.contact-info-card {
+    box-shadow: var(--shadow-sm) !important;
+    transition: transform 300ms ease, box-shadow 300ms ease, background-color 300ms ease, border-color 300ms ease !important;
+}
+
+.card:hover, 
+.profile-card:hover, 
+.project-card:hover, 
+.skill-card:hover, 
+.contact-card:hover, 
+.glass-panel:hover, 
+.uni-glass-card:hover, 
+.contact-form-card:hover, 
+.profile-floating-card:hover, 
+.project-hover-preview-card:hover, 
+.contact-info-card:hover {
+    box-shadow: var(--shadow-md) !important;
+}
+
+/* 3. Consistent border-radius */
+.btn-hero, 
+.btn-talk, 
+.btn-project-action, 
+.btn-form-submit, 
+.btn-gradient-cta, 
+.back-to-top-btn, 
+.mobile-cta-btn {
+    border-radius: 8px !important;
+}
+
+.card, 
+.profile-card, 
+.project-card, 
+.skill-card, 
+.contact-card, 
+.glass-panel, 
+.uni-glass-card, 
+.contact-form-card, 
+.profile-floating-card, 
+.project-hover-preview-card, 
+.contact-info-card,
+.about-image-wrapper {
+    border-radius: 12px !important;
+}
+
+input, 
+textarea {
+    border-radius: 6px !important;
+}
+
+/* 4. Smooth scroll on html element */
+html {
+    scroll-behavior: smooth !important;
+}
+
+/* 5. Input polish: placeholder, focus, transition */
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-secondary) !important;
+    opacity: 0.65;
+}
+
+input,
+textarea {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease !important;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 3px var(--primary-glow) !important;
+}
+
+
