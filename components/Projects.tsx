@@ -88,7 +88,7 @@ export default function Projects() {
       desc: 'Real-time weather dashboard with forecasts and interactive UI',
       liveUrl: '',
       githubUrl: 'https://github.com/mhassan-ali/weather-dashboard',
-      imgUrl: '/weather-dashboard.png',
+      imgUrl: '/assets/images/projects/weather-dashboard.png',
       browserUrl: 'weatherdashboard.com'
     },
     {
