@@ -52,12 +52,12 @@ without breaking anything.
 **Risk:** Very Low
 **Impact:** HIGH
 
-- [ ] Refine current colors
+- [x] Refine current colors
   - Slightly warmer whites (#FAFAF9)
   - Softer blacks (#1A1A1A)
   - Better accent color
-- [ ] Improve contrast ratios
-- [ ] Consistent across light/dark mode
+- [x] Improve contrast ratios
+- [x] Consistent across light/dark mode
 
 **Why safe:** Only color values change.
 
