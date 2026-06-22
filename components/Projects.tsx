@@ -83,6 +83,16 @@ export default function Projects() {
     },
     {
       num: '_07.',
+      name: 'Weather Dashboard',
+      badges: ['Python', 'FastAPI', 'JavaScript', 'HTML', 'CSS'],
+      desc: 'Real-time weather dashboard with forecasts and interactive UI',
+      liveUrl: '',
+      githubUrl: 'https://github.com/mhassan-ali/weather-dashboard',
+      imgUrl: '/weather-dashboard.png',
+      browserUrl: 'weatherdashboard.com'
+    },
+    {
+      num: '_08.',
       name: 'AI Resume Screener',
       badges: ['Coming Soon', '2025'],
       desc: 'Something exciting in progress...',
@@ -91,7 +101,7 @@ export default function Projects() {
       placeholderText: 'Next Project Loading'
     },
     {
-      num: '_08.',
+      num: '_09.',
       name: 'Distributed Broker Console',
       badges: ['Coming Soon', '2025'],
       desc: 'Another cool project loading...',
@@ -185,9 +195,11 @@ export default function Projects() {
                     
                     {!proj.isPlaceholder && (
                       <div className="project-card-actions">
-                        <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-project-action">
-                          <Globe size={14} /> Live Demo
-                        </a>
+                        {proj.liveUrl && (
+                          <a href={proj.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-project-action">
+                            <Globe size={14} /> Live Demo
+                          </a>
+                        )}
                         <a href={proj.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-project-action">
                           <FaGithub size={14} /> GitHub
                         </a>

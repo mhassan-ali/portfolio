@@ -7,17 +7,17 @@ import {
   FaCss3Alt, 
   FaJs, 
   FaReact, 
-  FaNodeJs, 
   FaGitAlt, 
   FaGithub, 
-  FaFigma 
+  FaFigma,
+  FaPython
 } from 'react-icons/fa';
 import { 
   SiNextdotjs, 
   SiTailwindcss, 
-  SiTypescript, 
-  SiExpress, 
-  SiMongodb
+  SiTypescript,
+  SiFastapi,
+  SiVercel
 } from 'react-icons/si';
 import { VscCode } from 'react-icons/vsc';
 
@@ -48,9 +48,8 @@ export default function Skills() {
     {
       title: '⚙️ Backend',
       skills: [
-        { name: 'Node.js', icon: FaNodeJs },
-        { name: 'Express', icon: SiExpress },
-        { name: 'MongoDB', icon: SiMongodb }
+        { name: 'FastAPI', icon: SiFastapi },
+        { name: 'Python', icon: FaPython }
       ]
     },
     {
@@ -59,7 +58,8 @@ export default function Skills() {
         { name: 'Git', icon: FaGitAlt },
         { name: 'GitHub', icon: FaGithub },
         { name: 'VS Code', icon: VscCode },
-        { name: 'Figma', icon: FaFigma }
+        { name: 'Figma', icon: FaFigma },
+        { name: 'Vercel', icon: SiVercel }
       ]
     }
   ];
