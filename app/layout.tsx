@@ -72,7 +72,10 @@ export default function RootLayout({
       className={`${inter.variable} ${plusJakartaSans.variable} ${spaceMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body 
+        className="min-h-full flex flex-col"
+        suppressHydrationWarning
+      >
         <ThemeProvider>
           {children}
         </ThemeProvider>
