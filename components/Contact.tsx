@@ -45,24 +45,24 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '';
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || '';
+      const templateParams = {
+        from_name: trimmedName,
+        from_email: trimmedEmail,
+        message: trimmedMessage,
+      };
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error('EmailJS configurations are missing. Please verify your environment setup.');
-      }
+      console.log('Sending with:', {
+        serviceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        templateId: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        params: templateParams
+      });
 
       await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: trimmedName,
-          reply_to: trimmedEmail,
-          subject: trimmedSubject || 'Portfolio Collaboration Request',
-          message: trimmedMessage
-        },
-        publicKey
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
 
       // Trigger success state
